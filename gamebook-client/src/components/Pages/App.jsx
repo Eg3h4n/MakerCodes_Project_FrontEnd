@@ -26,6 +26,17 @@ export default class App extends Component {
               </Link>
             </Col>
             <Col>
+              <Link to="/steam">
+                <Button>
+                  <img
+                    src="https://steamcommunity-a.akamaihd.net/public/images/signinthroughsteam/sits_02.png"
+                    alt="steam button"
+                    border="0"
+                  />
+                </Button>
+              </Link>
+            </Col>
+            <Col>
               <Link to="/login">
                 <Button color="success" size="lg">
                   Login
