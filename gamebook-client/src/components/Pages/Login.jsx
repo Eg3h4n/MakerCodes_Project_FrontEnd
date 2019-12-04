@@ -1,45 +1,27 @@
 import React, { Component } from "react";
-import {
-  Container,
-  Jumbotron,
-  Form,
-  FormGroup,
-  Label,
-  Input,
-  Button
-} from "reactstrap";
+import { Container, Jumbotron } from "reactstrap";
+import LoginForm from "../LoginForm";
+import { connect } from "react-redux";
+import { login } from "../../actions";
 
-export default class Login extends Component {
+class Login extends Component {
+  onFormSubmit = async formValues => {
+    await this.props.login(formValues.email, formValues.password);
+
+    this.props.history.push("/dashboard");
+    console.log(this.props);
+  };
+
   render() {
     return (
       <Container>
         <Jumbotron>
-          <Form>
-            <FormGroup>
-              <Label for="email">Email</Label>
-              <Input
-                type="email"
-                name="email"
-                id="email"
-                placeholder="Enter your email here!"
-                required
-              />
-            </FormGroup>
-            <FormGroup>
-              <Label for="password">Password</Label>
-              <Input
-                type="password"
-                name="password"
-                id="password"
-                placeholder="Enter password here!"
-                minLength="6"
-                required
-              />
-            </FormGroup>
-            <Button color="success">Login</Button>
-          </Form>
+          <h1>Login Form</h1>
+          <LoginForm onSubmit={this.onFormSubmit} />
         </Jumbotron>
       </Container>
     );
   }
 }
+
+export default connect(null, { login })(Login);
