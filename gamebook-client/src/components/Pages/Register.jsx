@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { register } from "../../actions";
 import { Container, Jumbotron } from "reactstrap";
 import RegisterForm from "../RegisterForm";
+//import { push } from "connected-react-router";
 
 class Register extends Component {
   onFormSubmit = async formValues => {
@@ -14,8 +15,9 @@ class Register extends Component {
       formValues.password
     );
 
-    this.props.history.push("/dashboard");
-    console.log(this.props);
+    //sessionStorage.setItem("Authorization", this.props.token);
+    //this.props.push("/dashboard");
+    //console.log(this.props);
   };
   render() {
     return (
@@ -28,5 +30,12 @@ class Register extends Component {
     );
   }
 }
+
+const mapStateToProps = state => {
+  return {
+    //token: state.register,
+    //user: state.user
+  };
+};
 
 export default connect(null, { register })(Register);

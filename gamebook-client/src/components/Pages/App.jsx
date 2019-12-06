@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Container, Jumbotron, Col, Row, Button } from "reactstrap";
 import { Link } from "react-router-dom";
+import Footer from "../Footer";
 
 export default class App extends Component {
   render() {
@@ -45,6 +46,7 @@ export default class App extends Component {
             </Col>
           </Row>
         </Jumbotron>
+        <Footer />
       </Container>
     );
   }

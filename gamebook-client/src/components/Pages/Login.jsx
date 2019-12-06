@@ -8,8 +8,13 @@ class Login extends Component {
   onFormSubmit = async formValues => {
     await this.props.login(formValues.email, formValues.password);
 
-    this.props.history.push("/dashboard");
-    console.log(this.props);
+    //console.log(this.props.user);
+
+    //sessionStorage.setItem("Authorization", this.props.token);
+
+    //this.props.push("/dashboard");
+
+    //console.log(this.props.token);
   };
 
   render() {
@@ -23,5 +28,12 @@ class Login extends Component {
     );
   }
 }
+
+/* const mapStateToProps = state => {
+  return {
+    //token: state.login.token
+    //user: state.login.user
+  };
+}; */
 
 export default connect(null, { login })(Login);

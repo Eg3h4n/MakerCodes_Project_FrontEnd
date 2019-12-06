@@ -2,16 +2,22 @@ import React, { Component } from "react";
 import { Container } from "reactstrap";
 import { getUser } from "../../actions";
 import { connect } from "react-redux";
+import NavComp from "../NavComp";
 
 class Dashboard extends Component {
-  constructor(props) {
-    super(props);
-
-    this.props.getUser();
+  componentDidMount() {
+    const userToken = sessionStorage.getItem("Authorization");
+    //console.log(sessionStorage.getItem("Authorization"));
+    this.props.getUser(userToken);
   }
 
   render() {
-    return <Container>{this.props.user.username}</Container>;
+    return (
+      <Container>
+        <NavComp />
+        this is {this.props.user.username}'s dashboard
+      </Container>
+    );
   }
 }
 

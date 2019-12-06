@@ -12,7 +12,6 @@ export default function RegisterFormInput(props) {
         id={props.name}
         placeholder={props.placeholder}
         minLength={props.minLength}
-        required={props.required}
       />
     </FormGroup>
   );

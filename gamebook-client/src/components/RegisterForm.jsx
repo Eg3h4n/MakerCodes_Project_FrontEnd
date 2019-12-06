@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Form, Button } from "reactstrap";
 import { Field, reduxForm } from "redux-form";
+import { required, email } from "redux-form-validators";
 import RegisterFormInput from "./LoginFormInput";
 
 class RegisterForm extends Component {
@@ -18,7 +19,7 @@ class RegisterForm extends Component {
           type="text"
           placeholder="Enter your username"
           component={RegisterFormInput}
-          required="true"
+          validate={required()}
         />
         <Field
           name="name"
@@ -26,7 +27,6 @@ class RegisterForm extends Component {
           type="text"
           placeholder="Enter your name"
           component={RegisterFormInput}
-          require="false"
         />
 
         <Field
@@ -35,7 +35,6 @@ class RegisterForm extends Component {
           type="text"
           placeholder="Enter your surname"
           component={RegisterFormInput}
-          required="false"
         />
 
         <Field
@@ -44,7 +43,7 @@ class RegisterForm extends Component {
           type="email"
           placeholder="Enter your email"
           component={RegisterFormInput}
-          required="true"
+          validate={[required(), email()]}
         />
         <Field
           name="password"
@@ -52,7 +51,7 @@ class RegisterForm extends Component {
           type="password"
           placeholder="Enter your password"
           component={RegisterFormInput}
-          required="true"
+          validate={required()}
           minLength="6"
         />
         <Field
@@ -61,7 +60,7 @@ class RegisterForm extends Component {
           type="password"
           placeholder="Enter your password again"
           component={RegisterFormInput}
-          required="true"
+          validate={required()}
           minLength="6"
         />
         <Button color="success">Register</Button>
