@@ -12,7 +12,8 @@ class Register extends Component {
       formValues.name,
       formValues.surname,
       formValues.email,
-      formValues.password
+      formValues.password,
+      sessionStorage.getItem("Authorization")
     );
 
     //sessionStorage.setItem("Authorization", this.props.token);
@@ -31,11 +32,11 @@ class Register extends Component {
   }
 }
 
-const mapStateToProps = state => {
+/* const mapStateToProps = state => {
   return {
     //token: state.register,
     //user: state.user
   };
-};
+}; */
 
 export default connect(null, { register })(Register);

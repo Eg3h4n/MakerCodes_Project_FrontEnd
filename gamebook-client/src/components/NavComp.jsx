@@ -11,6 +11,8 @@ import {
 } from "reactstrap";
 import { NavLink as Navlnk } from "react-router-dom";
 import { useSelector } from "react-redux";
+//import axios from "axios";
+import ProfileSearch from "./ProfileSearch";
 
 const NavComp = props => {
   const [isOpen, setIsOpen] = useState(false);
@@ -41,6 +43,7 @@ const NavComp = props => {
               </NavLink>
             </NavItem>
           </Nav>
+          <ProfileSearch />
           <Button tag={Navlnk} exact to="/" color="danger" onClick={logout}>
             Log Out
           </Button>

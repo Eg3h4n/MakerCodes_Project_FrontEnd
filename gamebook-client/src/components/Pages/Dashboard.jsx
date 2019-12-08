@@ -1,12 +1,23 @@
 import React, { Component } from "react";
-import { Container } from "reactstrap";
+import {
+  Container,
+  Jumbotron,
+  Card,
+  CardHeader,
+  CardBody,
+  CardText,
+  CardTitle,
+  CardFooter,
+  Row,
+  Col
+} from "reactstrap";
 import { getUser } from "../../actions";
 import { connect } from "react-redux";
 import NavComp from "../NavComp";
 
 class Dashboard extends Component {
-  componentDidMount() {
-    const userToken = sessionStorage.getItem("Authorization");
+  async componentDidMount() {
+    const userToken = await sessionStorage.getItem("Authorization");
     //console.log(sessionStorage.getItem("Authorization"));
     this.props.getUser(userToken);
   }
@@ -15,7 +26,37 @@ class Dashboard extends Component {
     return (
       <Container>
         <NavComp />
-        this is {this.props.user.username}'s dashboard
+        <Jumbotron>
+          <Row>
+            <Col xs="3">
+              <img
+                src={this.props.user.avatarURL}
+                alt="avatar"
+                height="auto"
+                width="auto"
+                className="img-thumbnail rounded"
+              />
+            </Col>
+            <Col xs="9">
+              <Card>
+                <CardHeader>
+                  <h1>{this.props.user.username}</h1>
+                </CardHeader>
+                <CardBody>
+                  <CardTitle>
+                    {this.props.user.name} {this.props.user.surname}
+                  </CardTitle>
+                  <CardText>{this.props.user.email}</CardText>
+                </CardBody>
+                <CardFooter>
+                  Member Since: {this.props.user.memberSince}
+                </CardFooter>
+              </Card>
+            </Col>
+          </Row>
+          <hr />
+          <h1 className="text-center">Manage Games</h1>
+        </Jumbotron>
       </Container>
     );
   }

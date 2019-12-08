@@ -1,15 +1,16 @@
 import baseURL from "../api/baseURL";
 import { push } from "connected-react-router";
 
-var token = "";
-token = sessionStorage.getItem("Authorization");
+/* var token = "";
+token = sessionStorage.getItem("Authorization"); */
 
 export const register = (
   username,
   name,
   surname,
   email,
-  password
+  password,
+  userToken
 ) => async dispatch => {
   const response = await baseURL.post(
     "/auth/register",
@@ -20,7 +21,7 @@ export const register = (
       email: email,
       password: password
     },
-    { headers: { Authorization: token } }
+    { headers: { Authorization: userToken } }
   );
 
   //console.log(response);
@@ -32,7 +33,7 @@ export const register = (
   dispatch(push("/dashboard"));
 };
 
-export const login = (email, password) => async dispatch => {
+export const login = (email, password, userToken) => async dispatch => {
   //console.log(sessionStorage.getItem("Authorization"));
 
   const response = await baseURL.post(
@@ -41,7 +42,7 @@ export const login = (email, password) => async dispatch => {
       email: email,
       password: password
     },
-    { headers: { Authorization: token } }
+    { headers: { Authorization: userToken } }
   );
 
   //console.log(response);
@@ -49,7 +50,7 @@ export const login = (email, password) => async dispatch => {
   await sessionStorage.setItem("Authorization", response.data.token);
 
   dispatch({ type: "LOGIN", payload: response.data });
-  dispatch({ type: "GET_USER", payload: response.data.user });
+  //dispatch({ type: "GET_USER", payload: response.data.user });
   dispatch(push("/dashboard"));
 };
 
@@ -59,4 +60,14 @@ export const getUser = userToken => async dispatch => {
   });
 
   dispatch({ type: "GET_USER", payload: response.data });
+};
+
+export const getProfile = (username, userToken) => async dispatch => {
+  const response = await baseURL.get(`/profile/${username}`, {
+    headers: { Authorization: userToken }
+  });
+
+  console.log(response.data);
+
+  dispatch({ type: "GET_PROFILE", payload: response.data });
 };

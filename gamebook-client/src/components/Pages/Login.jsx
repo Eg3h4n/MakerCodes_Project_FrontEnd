@@ -6,7 +6,11 @@ import { login } from "../../actions";
 
 class Login extends Component {
   onFormSubmit = async formValues => {
-    await this.props.login(formValues.email, formValues.password);
+    await this.props.login(
+      formValues.email,
+      formValues.password,
+      sessionStorage.getItem("Authorization")
+    );
 
     //console.log(this.props.user);
 
