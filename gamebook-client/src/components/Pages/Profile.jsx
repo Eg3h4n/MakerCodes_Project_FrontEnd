@@ -15,7 +15,7 @@ import {
 } from "reactstrap";
 import NavComp from "../NavComp";
 import { getProfile } from "../../actions";
-import MyGame from "../MyGame";
+import ProfileGame from "../ProfileGame";
 
 class Profile extends Component {
   componentDidMount() {
@@ -26,7 +26,7 @@ class Profile extends Component {
 
   renderGames = () => {
     const renderedGames = this.props.profile.games.map(game => {
-      return <MyGame key={game._id} game={game} />;
+      return <ProfileGame key={game._id} game={game} />;
     });
     return renderedGames;
   };

@@ -11,22 +11,36 @@ import {
   Row,
   Col
 } from "reactstrap";
-import { getUser } from "../../actions";
+import { getUser, getGames } from "../../actions";
 import { connect } from "react-redux";
 import NavComp from "../NavComp";
+import DashboardGame from "../DashboardGame";
+import AddGameModal from "../AddGameModal";
 
 class Dashboard extends Component {
   async componentDidMount() {
     const userToken = await sessionStorage.getItem("Authorization");
     //console.log(sessionStorage.getItem("Authorization"));
     this.props.getUser(userToken);
+    this.props.getGames();
   }
 
+  renderGames = () => {
+    const renderedGames = this.props.user.games.map(game => {
+      return <DashboardGame key={game._id} game={game} />;
+    });
+    return renderedGames;
+  };
+
   render() {
+    if (Array.isArray(this.props.user.games)) {
+      var renderedGames = this.renderGames();
+    }
     return (
       <Container>
         <NavComp />
         <Jumbotron>
+          <h1 className="text-center">Manage Account</h1>
           <Row>
             <Col xs="3">
               <img
@@ -56,6 +70,9 @@ class Dashboard extends Component {
           </Row>
           <hr />
           <h1 className="text-center">Manage Games</h1>
+          <AddGameModal />
+          <hr />
+          {Array.isArray(this.props.user.games) ? renderedGames : "loading"}
         </Jumbotron>
       </Container>
     );
@@ -68,4 +85,4 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps, { getUser })(Dashboard);
+export default connect(mapStateToProps, { getUser, getGames })(Dashboard);

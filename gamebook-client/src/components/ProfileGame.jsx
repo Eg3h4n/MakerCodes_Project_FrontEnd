@@ -8,7 +8,7 @@ import {
   CardText
 } from "reactstrap";
 
-export default function MyGame(props) {
+export default function ProfileGame(props) {
   return (
     <Card>
       <CardImg
