@@ -16,6 +16,8 @@ import { connect } from "react-redux";
 import NavComp from "../NavComp";
 import DashboardGame from "../DashboardGame";
 import AddGameModal from "../AddGameModal";
+import DashboardAccountEditModal from "../DashboardAccountEditModal";
+import Footer from "../Footer";
 
 class Dashboard extends Component {
   async componentDidMount() {
@@ -26,6 +28,7 @@ class Dashboard extends Component {
   }
 
   renderGames = () => {
+    this.props.user.games.reverse();
     const renderedGames = this.props.user.games.map(game => {
       return <DashboardGame key={game._id} game={game} />;
     });
@@ -53,8 +56,9 @@ class Dashboard extends Component {
             </Col>
             <Col xs="9">
               <Card>
-                <CardHeader>
+                <CardHeader className="d-flex justify-content-between">
                   <h1>{this.props.user.username}</h1>
+                  <DashboardAccountEditModal />
                 </CardHeader>
                 <CardBody>
                   <CardTitle>
@@ -74,6 +78,7 @@ class Dashboard extends Component {
           <hr />
           {Array.isArray(this.props.user.games) ? renderedGames : "loading"}
         </Jumbotron>
+        <Footer />
       </Container>
     );
   }

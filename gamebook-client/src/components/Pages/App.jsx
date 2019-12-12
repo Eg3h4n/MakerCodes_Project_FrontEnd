@@ -9,7 +9,7 @@ export default class App extends Component {
       <Container
         className="d-flex flex-column justify-content-center align-items-center"
         fluid
-        style={{ height: "100vh", backgroundColor: "black" }}
+        style={{ height: "100vh" }}
       >
         <h1 className="m-5" style={{ color: "white" }}>
           Welcome to Gamebook!

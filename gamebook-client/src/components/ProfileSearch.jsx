@@ -1,11 +1,9 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import axios from "axios";
+import { getAllUsers } from "../actions";
 import { push } from "connected-react-router";
 import { Search, Label } from "semantic-ui-react";
 import _ from "lodash";
-
-const resultRenderer = ({ username }) => <Label content={username} />;
 
 const initialState = { isLoading: false, results: [], value: "" };
 
@@ -13,23 +11,36 @@ class ProfileSearch extends Component {
   constructor(props) {
     super(props);
 
-    this.state = { isLoading: false, results: [], value: "", allUsers: [] };
+    this.state = initialState;
   }
   //state = initialState;
 
-  getAllUsers = async () => {
-    const allUsers = await axios.get("http://localhost:3000/profile", {
-      headers: { Authorization: sessionStorage.getItem("Authorization") }
-    });
+  profileSearch = async event => {
+    const usersList = this.props.allUsers.map(user => user.username);
 
-    this.setState({
-      allUsers: allUsers.data
-    });
+    const query = event.target.value;
+
+    if (query.length > 0) {
+      const result = usersList.filter(user => {
+        return user.toLowerCase().search(user.toLowerCase()) !== -1;
+      });
+
+      this.setState({ results: result });
+    } else {
+      this.setState({ results: null });
+    }
   };
 
-  async componentDidMount() {
-    this.getAllUsers();
+  componentDidMount() {
+    this.props.getAllUsers(sessionStorage.getItem("Authorization"));
   }
+
+  resultRenderer = ({ username }) => (
+    <Label
+      content={username}
+      onClick={() => this.props.push(`/profile/${username}`)}
+    />
+  );
   /*
   searchFunc = async event => {
     this.setState({
@@ -74,14 +85,14 @@ class ProfileSearch extends Component {
 
       this.setState({
         isLoading: false,
-        results: _.filter(this.state.allUsers, isMatch)
+        results: _.filter(this.props.allUsers, isMatch)
       });
     }, 300);
   };
 
   render() {
     const { isLoading, value, results } = this.state;
-    console.log(this.state);
+    //console.log(this.state);
     return (
       <div className="mx-5">
         <Search
@@ -93,7 +104,7 @@ class ProfileSearch extends Component {
           })}
           results={results}
           value={value}
-          resultRenderer={resultRenderer}
+          resultRenderer={this.resultRenderer}
           {...this.props}
         />
       </div>
@@ -101,4 +112,10 @@ class ProfileSearch extends Component {
   }
 }
 
-export default connect(null, { push })(ProfileSearch);
+const mapStateToProps = state => {
+  return {
+    allUsers: state.allUsers
+  };
+};
+
+export default connect(mapStateToProps, { getAllUsers, push })(ProfileSearch);

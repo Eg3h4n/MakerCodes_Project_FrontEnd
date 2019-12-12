@@ -16,6 +16,7 @@ import {
 import NavComp from "../NavComp";
 import { getProfile } from "../../actions";
 import ProfileGame from "../ProfileGame";
+import Footer from "../Footer";
 
 class Profile extends Component {
   componentDidMount() {
@@ -75,6 +76,7 @@ class Profile extends Component {
               : "loading"}
           </CardColumns>
         </Jumbotron>
+        <Footer />
       </Container>
     );
   }

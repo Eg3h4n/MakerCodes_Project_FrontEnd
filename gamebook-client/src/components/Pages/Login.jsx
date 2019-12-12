@@ -3,6 +3,7 @@ import { Container, Jumbotron } from "reactstrap";
 import LoginForm from "../LoginForm";
 import { connect } from "react-redux";
 import { login } from "../../actions";
+import Footer from "../Footer";
 
 class Login extends Component {
   onFormSubmit = async formValues => {
@@ -28,6 +29,7 @@ class Login extends Component {
           <h1>Login Form</h1>
           <LoginForm onSubmit={this.onFormSubmit} />
         </Jumbotron>
+        <Footer />
       </Container>
     );
   }

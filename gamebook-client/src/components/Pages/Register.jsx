@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { register } from "../../actions";
 import { Container, Jumbotron } from "reactstrap";
 import RegisterForm from "../RegisterForm";
+import Footer from "../Footer";
 //import { push } from "connected-react-router";
 
 class Register extends Component {
@@ -27,6 +28,7 @@ class Register extends Component {
           <h1>Register Form</h1>
           <RegisterForm onSubmit={this.onFormSubmit} />
         </Jumbotron>
+        <Footer />
       </Container>
     );
   }

@@ -7,9 +7,9 @@ import {
   CardText,
   Row,
   Col,
-  CardFooter,
-  Button
+  CardFooter
 } from "reactstrap";
+import DashboardGameRemoveModal from "./DashboardGameRemoveModal";
 
 export default function ProfileGame(props) {
   return (
@@ -31,9 +31,7 @@ export default function ProfileGame(props) {
             <CardText>{props.game.publisher}</CardText>
           </CardBody>
           <CardFooter>
-            <Button color="danger" className="float-right">
-              Remove
-            </Button>
+            <DashboardGameRemoveModal game={props.game} />
           </CardFooter>
         </Card>
       </Col>

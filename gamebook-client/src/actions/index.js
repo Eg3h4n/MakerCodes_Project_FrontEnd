@@ -60,12 +60,22 @@ export const getUser = userToken => async dispatch => {
   dispatch({ type: "GET_USER", payload: response.data });
 };
 
+export const updateUser = (data, userToken) => async dispatch => {
+  const response = await baseURL.put("/dashboard", data, {
+    headers: { Authorization: userToken }
+  });
+  //console.log(response.data);
+
+  dispatch({ type: "UPDATE_USER", payload: response.data });
+  dispatch(getUser(userToken));
+};
+
 export const getProfile = (username, userToken) => async dispatch => {
   const response = await baseURL.get(`/profile/${username}`, {
     headers: { Authorization: userToken }
   });
 
-  console.log(response.data);
+  //console.log(response.data);
 
   dispatch({ type: "GET_PROFILE", payload: response.data });
 };
@@ -74,4 +84,12 @@ export const getGames = () => async dispatch => {
   const response = await baseURL.get("/games");
 
   dispatch({ type: "GET_GAMES", payload: response.data });
+};
+
+export const getAllUsers = userToken => async dispatch => {
+  const response = await baseURL.get("/profile", {
+    headers: { Authorization: userToken }
+  });
+
+  dispatch({ type: "GET_ALL_USERS", payload: response.data });
 };

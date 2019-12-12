@@ -6,6 +6,8 @@ import { reducer as formReducer } from "redux-form";
 import registerReducer from "./registerReducer";
 import profileReducer from "./profileReducer";
 import gamesReducer from "./gamesReducer";
+import updateReducer from "./updateReducer";
+import allUsersReducer from "./allUsersReducer";
 
 const createRootReducer = history =>
   combineReducers({
@@ -15,7 +17,9 @@ const createRootReducer = history =>
     user: userReducer,
     form: formReducer,
     profile: profileReducer,
-    games: gamesReducer
+    games: gamesReducer,
+    update: updateReducer,
+    allUsers: allUsersReducer
   });
 
 export default createRootReducer;
