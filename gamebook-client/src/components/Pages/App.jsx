@@ -2,8 +2,6 @@ import React, { Component } from "react";
 import { Container, Jumbotron, Col, Row, Button } from "reactstrap";
 import { Link } from "react-router-dom";
 import Footer from "../Footer";
-import { connect } from "react-redux";
-import { steamLogin } from "../../actions";
 
 export default class App extends Component {
   render() {
@@ -29,15 +27,15 @@ export default class App extends Component {
               </Link>
             </Col>
             <Col>
-              {/* <Link to="/steam"> */}
-              <Button className="p-0" onClick={() => this.props.steamLogin()}>
-                <img
-                  src="https://steamcommunity-a.akamaihd.net/public/images/signinthroughsteam/sits_02.png"
-                  alt="steam button"
-                  border="0"
-                />
-              </Button>
-              {/* </Link> */}
+              <Link to="/steam">
+                <Button className="p-0">
+                  <img
+                    src="https://steamcommunity-a.akamaihd.net/public/images/signinthroughsteam/sits_02.png"
+                    alt="steam button"
+                    border="0"
+                  />
+                </Button>
+              </Link>
             </Col>
             <Col>
               <Link to="/login">
@@ -53,5 +51,3 @@ export default class App extends Component {
     );
   }
 }
-
-export default connect(null, { steamLogin })(App);
