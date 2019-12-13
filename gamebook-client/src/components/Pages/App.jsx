@@ -5,7 +5,7 @@ import Footer from "../Footer";
 import { connect } from "react-redux";
 import { steamLogin } from "../../actions";
 
-class App extends Component {
+export default class App extends Component {
   render() {
     return (
       <Container
