@@ -33,11 +33,6 @@ class Profile extends Component {
   };
 
   render() {
-    // bakilacak
-    const userToken = sessionStorage.getItem("Authorization");
-
-    this.props.getProfile(this.props.match.params.username, userToken);
-
     if (Array.isArray(this.props.profile.games)) {
       var renderedGames = this.renderGames();
     }
