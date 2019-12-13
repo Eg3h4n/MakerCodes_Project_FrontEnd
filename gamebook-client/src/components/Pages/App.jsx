@@ -29,7 +29,6 @@ class App extends Component {
               </Link>
             </Col>
             <Col>
-              {/* <Link to="/steam"> */}
               <Button className="p-0" onClick={() => this.props.steamLogin()}>
                 <img
                   src="https://steamcommunity-a.akamaihd.net/public/images/signinthroughsteam/sits_02.png"
@@ -37,7 +36,6 @@ class App extends Component {
                   border="0"
                 />
               </Button>
-              {/* </Link> */}
             </Col>
             <Col>
               <Link to="/login">
