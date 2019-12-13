@@ -15,7 +15,7 @@ class ProfileSearch extends Component {
   }
   //state = initialState;
 
-  profileSearch = async event => {
+  /* profileSearch = async event => {
     const usersList = this.props.allUsers.map(user => user.username);
 
     const query = event.target.value;
@@ -29,7 +29,7 @@ class ProfileSearch extends Component {
     } else {
       this.setState({ results: null });
     }
-  };
+  }; */
 
   componentDidMount() {
     this.props.getAllUsers(sessionStorage.getItem("Authorization"));
