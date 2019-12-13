@@ -54,6 +54,7 @@ ReactDOM.render(
           <PublicRoute exact path="/" component={App} />
           <PublicRoute exact path="/register" component={Register} />
           <PublicRoute exact path="/login" component={Login} />
+          {/*   <PublicRoute exact path="/steam" component={Steam} /> */}
           <PrivateRoute exact path="/dashboard" component={Dashboard} />
           <PrivateRoute exact path="/profile/:username" component={Profile} />
           <Route path="*" component={NotFound} />
