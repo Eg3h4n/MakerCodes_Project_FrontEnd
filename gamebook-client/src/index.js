@@ -18,7 +18,7 @@ import App from "./components/Pages/App";
 import NotFound from "./components/Pages/NotFound";
 import Register from "./components/Pages/Register";
 import Login from "./components/Pages/Login";
-//import Steam from "./components/Pages/Steam";
+import Steam from "./components/Pages/Steam";
 import Profile from "./components/Pages/Profile";
 import Dashboard from "./components/Pages/Dashboard";
 import PrivateRoute from "./PrivateRoute";
@@ -54,7 +54,8 @@ ReactDOM.render(
           <PublicRoute exact path="/" component={App} />
           <PublicRoute exact path="/register" component={Register} />
           <PublicRoute exact path="/login" component={Login} />
-          {/*   <PublicRoute exact path="/steam" component={Steam} /> */}
+          <PublicRoute exact path="/steam" component={Steam} />
+
           <PrivateRoute exact path="/dashboard" component={Dashboard} />
           <PrivateRoute exact path="/profile/:username" component={Profile} />
           <Route path="*" component={NotFound} />
