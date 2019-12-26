@@ -27,11 +27,7 @@ export default class App extends Component {
               </Link>
             </Col>
             <Col>
-<<<<<<< HEAD
               <a href="https://intense-cove-06524.herokuapp.com/auth/steam">
-=======
-              <Link to="/steam">
->>>>>>> 3a090706fae9b1e6e9fa354b59f6c3a6cfa22e19
                 <Button className="p-0">
                   <img
                     src="https://steamcommunity-a.akamaihd.net/public/images/signinthroughsteam/sits_02.png"
@@ -39,11 +35,7 @@ export default class App extends Component {
                     border="0"
                   />
                 </Button>
-<<<<<<< HEAD
               </a>
-=======
-              </Link>
->>>>>>> 3a090706fae9b1e6e9fa354b59f6c3a6cfa22e19
             </Col>
             <Col>
               <Link to="/login">
