@@ -29,13 +29,15 @@ class App extends Component {
               </Link>
             </Col>
             <Col>
-              <Button className="p-0" onClick={() => this.props.steamLogin()}>
-                <img
-                  src="https://steamcommunity-a.akamaihd.net/public/images/signinthroughsteam/sits_02.png"
-                  alt="steam button"
-                  border="0"
-                />
-              </Button>
+              <a href="https://intense-cove-06524.herokuapp.com/auth/steam">
+                <Button className="p-0">
+                  <img
+                    src="https://steamcommunity-a.akamaihd.net/public/images/signinthroughsteam/sits_02.png"
+                    alt="steam button"
+                    border="0"
+                  />
+                </Button>
+              </a>
             </Col>
             <Col>
               <Link to="/login">
