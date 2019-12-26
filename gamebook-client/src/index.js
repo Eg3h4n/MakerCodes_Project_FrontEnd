@@ -18,7 +18,6 @@ import App from "./components/Pages/App";
 import NotFound from "./components/Pages/NotFound";
 import Register from "./components/Pages/Register";
 import Login from "./components/Pages/Login";
-//import Steam from "./components/Pages/Steam";
 import Profile from "./components/Pages/Profile";
 import Dashboard from "./components/Pages/Dashboard";
 import PrivateRoute from "./PrivateRoute";

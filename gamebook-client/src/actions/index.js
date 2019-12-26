@@ -52,12 +52,6 @@ export const login = (email, password, userToken) => async dispatch => {
   dispatch(push("/dashboard"));
 };
 
-export const steamLogin = () => async dispatch => {
-  const response = await baseURL.get("/auth/steam");
-
-  dispatch({ type: "STEAM_LOGIN", payload: response });
-};
-
 export const getUser = userToken => async dispatch => {
   const response = await baseURL.get("/dashboard", {
     headers: { Authorization: userToken }

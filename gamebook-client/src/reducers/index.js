@@ -1,7 +1,6 @@
 import { combineReducers } from "redux";
 import { connectRouter } from "connected-react-router";
 import loginReducer from "./loginReducer";
-import steamLoginReducer from "./steamLoginReducer";
 import userReducer from "./userReducer";
 import { reducer as formReducer } from "redux-form";
 import registerReducer from "./registerReducer";
@@ -15,7 +14,6 @@ const createRootReducer = history =>
     router: connectRouter(history),
     register: registerReducer,
     login: loginReducer,
-    steamLogin: steamLoginReducer,
     user: userReducer,
     form: formReducer,
     profile: profileReducer,
