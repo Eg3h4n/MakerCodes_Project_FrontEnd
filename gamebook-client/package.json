@@ -1,5 +1,6 @@
 {
   "name": "gamebook-client",
+  "author": "Egehan Gur",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
