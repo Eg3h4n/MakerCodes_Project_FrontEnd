@@ -51,7 +51,7 @@ ReactDOM.render(
       <div>
         <Switch>
           <PublicRoute exact path="/" component={App} />
-          <PublicRoute exact path="/register" component={Register} />
+          <PublicRoute exact path="/privacy" component={Register} />
           <PublicRoute exact path="/login" component={Login} />
           <PrivateRoute exact path="/dashboard" component={Dashboard} />
           <PrivateRoute exact path="/profile/:username" component={Profile} />
