@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Container, Jumbotron, Col, Row, Button } from "reactstrap";
 import { Link } from "react-router-dom";
 import Footer from "../Footer";
+import LoginForm from "../LoginForm";
 
 export default class App extends Component {
   render() {
@@ -12,40 +13,20 @@ export default class App extends Component {
         style={{ height: "100vh" }}
       >
         <h1 className="m-5" style={{ color: "white" }}>
-          Welcome to Gamebook!
+          Welcome to Note Vault!
         </h1>
-        <Jumbotron
-          className="d-flex justify-content-center align-items-center"
-          style={{ backgroundColor: "black" }}
-        >
-          <Row>
-            <Col>
-              <Link to="/register">
-                <Button color="primary" size="lg">
-                  Register
-                </Button>
-              </Link>
-            </Col>
-            <Col>
-              <a href="https://intense-cove-06524.herokuapp.com/auth/steam">
-                <Button className="p-0">
-                  <img
-                    src="https://steamcommunity-a.akamaihd.net/public/images/signinthroughsteam/sits_02.png"
-                    alt="steam button"
-                    border="0"
-                  />
-                </Button>
-              </a>
-            </Col>
-            <Col>
-              <Link to="/login">
-                <Button color="success" size="lg">
-                  Login
-                </Button>
-              </Link>
-            </Col>
-          </Row>
-        </Jumbotron>
+
+        <Row>
+          <Link to="/privacy">
+            <Button color="success" size="lg">
+              Privacy Policy
+            </Button>
+          </Link>
+        </Row>
+        <Row>
+          <LoginForm />
+        </Row>
+
         <Footer />
       </Container>
     );
