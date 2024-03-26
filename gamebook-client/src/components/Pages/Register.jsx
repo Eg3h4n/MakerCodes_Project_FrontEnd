@@ -6,20 +6,6 @@ import Footer from "../Footer";
 //import { push } from "connected-react-router";
 
 class Register extends Component {
-  onFormSubmit = async (formValues) => {
-    await this.props.register(
-      formValues.username,
-      formValues.name,
-      formValues.surname,
-      formValues.email,
-      formValues.password,
-      sessionStorage.getItem("Authorization")
-    );
-
-    //sessionStorage.setItem("Authorization", this.props.token);
-    //this.props.push("/dashboard");
-    //console.log(this.props);
-  };
   render() {
     return (
       <Container>
