@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Container, Jumbotron, Col, Row, Button } from "reactstrap";
+import { Container, Row, Button } from "reactstrap";
 import { Link } from "react-router-dom";
 import Footer from "../Footer";
 import LoginForm from "../LoginForm";

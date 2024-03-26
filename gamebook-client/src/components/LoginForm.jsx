@@ -4,7 +4,6 @@ import { Field, reduxForm } from "redux-form";
 import LoginFormInput from "./LoginFormInput";
 
 import { app } from "../_config/firebase";
-import { getDatabase, onValue } from "firebase/database";
 import { getAuth, deleteUser, signInWithEmailAndPassword } from "firebase/auth";
 
 class LoginForm extends Component {
